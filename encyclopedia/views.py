@@ -30,6 +30,14 @@ def random(request):
     random_name = choice(filenames)
     return HttpResponseRedirect("wiki/" + random_name)
 
+def search(request):
+    form = request.POST
+    if request.method == "POST":
+        form = request.POST
+        name = form["title"]
+        # return render(request, "wiki/" + name)
+        return HttpResponseRedirect("wiki/" + name)
+
 
 
 
