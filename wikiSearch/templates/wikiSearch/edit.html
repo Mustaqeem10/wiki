@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{name}}
+{% endblock %}
+
+{% block body %}
+    {% with nam=name %}
+        <form action={% url 'wikiSearch:edit' name=nam %} method="POST">
+            {% csrf_token %}
+            <label for="description">Description:</label><br>
+            <textarea type="text" name="description" required placeholder="Description" rows="4" cols="70">{{data}}</textarea><br>
+            <input type="submit" value="save">
+        </form>
+    {% endwith %}
+
+{% endblock %}
